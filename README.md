@@ -17,6 +17,7 @@ import getpass
 from optparse import OptionParser
 import subprocess
 import sleekxmpp
+from tkinter import * 
 
 global st
 
@@ -48,7 +49,19 @@ class empfang(sleekxmpp.ClientXMPP):
         self.get_roster()
         print("startet")
 
-
+    def status(self, rechnen):
+        global rechnen
+        global st
+        if rechnen == True:
+            status = Tk()
+            g = Label(status, bg="green")
+            g.pack()
+            st = "beschäftigt."
+        else:
+            status = Tk()
+            r = Label(status, bg="red")
+            r.pack()
+            st = "arbeitslos."
         
 
 #    def hallo(self, msg):
@@ -61,7 +74,6 @@ class empfang(sleekxmpp.ClientXMPP):
 #message empfangen
     def empfang(self, msg):
         global st
-        st = "null"
         # process incoming messages
         print("NACHRICHT!")
         print(msg['body'])
