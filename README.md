@@ -19,6 +19,7 @@ import subprocess
 import sleekxmpp
 from tkinter import * 
 
+global rechnen
 global st
 
 
