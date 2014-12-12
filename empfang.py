@@ -39,13 +39,11 @@ class empfang(sleekxmpp.ClientXMPP):
         self.get_roster()
         #Er ist bereit
         print("startet")
-
-
         
     def status(self):
         global rechnen
         global st
-        if rechnen == True:
+        if rechnen == True: #Status wird abgefragt
             status = Tk()
             g = Label(status, bg="green")
             g.pack()
@@ -56,14 +54,9 @@ class empfang(sleekxmpp.ClientXMPP):
             r.pack()
             st = "arbeitslos."
 
-
-
-
-#message empfangen
     def empfang(self, msg):
         global st
-        st = "null"
-        # man wir darauf aufmerksam gemacht, dass man eine Nachricht bekommen hat
+        st = "null" #Vorübergängig
         print("NACHRICHT!")
         #Die Nachricht wir angezeigt
         print(msg['body'])
