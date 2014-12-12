@@ -77,7 +77,7 @@ class empfang(sleekxmpp.ClientXMPP):
         # process incoming messages
         print("NACHRICHT!")
         print(msg['body'])
-        print("Dein Partner ist gerade ", st)
+        print("Du bist gerade ", st)
        # print("asd"+out.decode("utf-8")+"asd")
        # msg.reply(out.decode("utf-8")).send()
 
