@@ -4,10 +4,12 @@ import getpass
 from optparse import OptionParser
 import subprocess
 import sleekxmpp
+from tkinter import *
+
 
 #
 global st
-
+global rechnen
 
 
 # set default encoding to utf8
@@ -40,6 +42,21 @@ class empfang(sleekxmpp.ClientXMPP):
         print("startet")
 
 
+        
+    def status(self, rechnen):
+        global rechnen
+        global st
+        if rechnen == True:
+            status = Tk()
+            g = Label(status, bg="green")
+            g.pack()
+            st = "beschäftigt."
+        else:
+            status = Tk()
+            r = Label(status, bg="red")
+            r.pack()
+            st = "arbeitslos."
+
 
 
 
@@ -51,7 +68,7 @@ class empfang(sleekxmpp.ClientXMPP):
         print("NACHRICHT!")
         #Die Nachricht wir angezeigt
         print(msg['body'])
-        print("Ich bin gerade ", st)
+        print("Du bist gerade ", st)
 
 
             
