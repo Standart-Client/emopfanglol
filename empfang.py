@@ -7,7 +7,6 @@ import sleekxmpp
 from tkinter import *
 
 
-#
 global st
 global rechnen
 
@@ -43,7 +42,7 @@ class empfang(sleekxmpp.ClientXMPP):
 
 
         
-    def status(self, rechnen):
+    def status(self):
         global rechnen
         global st
         if rechnen == True:
