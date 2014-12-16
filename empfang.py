@@ -19,22 +19,33 @@ else:
     raw_input = input
 
 
+status = Tk()
+status.title("Tkinter Messenger")
+status.resizable(width=FALSE, height=FALSE)
 
-#hier wird die Klasse für den EmpfÃ¤nger erstellt:
+#hier wird die Klasse für den Empfänger erstellt:
 class empfang(sleekxmpp.ClientXMPP):
-
-    def __init__(self, jid, password):
+    
+    def __init__(self, jid, password, master):
         sleekxmpp.ClientXMPP.__init__(self, jid, password)
 
         # start the session
         self.add_event_handler("session_start", self.start)
 
         # message handler
-        #Wenn eine nachricht ankommt wird self.empfang ausgef+ührt
+        #Wenn eine nachricht ankommt wird self.empfang ausgeführt
         self.add_event_handler("message", self.empfang)
         #self.add_event_handler("message", self.message)
         #self.add_event_handler("nachricht_senden", self.nachricht_senden)
 
+        frame = Frame(master)
+        frame.pack()
+        self.button = Button(frame, text="Rechnen==True", command=self.rechnen)
+        self.button.pack(side=RIGHT)
+
+    def rechnen(self):
+        print("set")
+        
     def nachricht_senden(self):
         name = input("Name an: ")
         nachricht = input("Nachricht: ")
@@ -53,15 +64,17 @@ class empfang(sleekxmpp.ClientXMPP):
         global rechnen
         global st
         if rechnen == True: #Status wird abgefragt
+            print("Test")
             status = Tk()
             g = Label(status, bg="green")
             g.pack()
-            st = "beschÃ¤ftigt."
+            st = "beschäftigt."
         else:
             status = Tk()
             r = Label(status, bg="red")
             r.pack()
             st = "arbeitslos."
+        status.mainloop()
 
     def empfang(self, msg):
         global st
@@ -70,8 +83,6 @@ class empfang(sleekxmpp.ClientXMPP):
         #Die Nachricht wir angezeigt
         print(msg['body'])
         print("Du bist gerade ", st)
-
-
             
 if __name__ == '__main__':
     # Setup the command line arguments.
@@ -116,5 +127,7 @@ if __name__ == '__main__':
         print("Done")
     else:
         print("Unable to connect.")
-
+        
+status = Tk()
+empfang = Empfang(status)
 status.mainloop()
