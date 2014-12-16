@@ -20,7 +20,7 @@ else:
 
 
 
-#hier wird die Klasse fü den Empfänger erstellt:
+#hier wird die Klasse für den EmpfÃ¤nger erstellt:
 class empfang(sleekxmpp.ClientXMPP):
 
     def __init__(self, jid, password):
@@ -30,10 +30,10 @@ class empfang(sleekxmpp.ClientXMPP):
         self.add_event_handler("session_start", self.start)
 
         # message handler
-        #Wenn eine nachricht ankommt wird self.empfang ausgeführt
+        #Wenn eine nachricht ankommt wird self.empfang ausgef+ührt
         self.add_event_handler("message", self.empfang)
-        self.add_event_handler("message", self.message)
-        self.add_event_handler("nachricht_senden", self.nachricht_senden)
+        #self.add_event_handler("message", self.message)
+        #self.add_event_handler("nachricht_senden", self.nachricht_senden)
 
     def nachricht_senden(self):
         name = input("Name an: ")
@@ -56,7 +56,7 @@ class empfang(sleekxmpp.ClientXMPP):
             status = Tk()
             g = Label(status, bg="green")
             g.pack()
-            st = "beschäftigt."
+            st = "beschÃ¤ftigt."
         else:
             status = Tk()
             r = Label(status, bg="red")
@@ -65,7 +65,7 @@ class empfang(sleekxmpp.ClientXMPP):
 
     def empfang(self, msg):
         global st
-        st = "null" #Vor�berg�ngig
+        st = "null" #Vorübergängig
         print("NACHRICHT!")
         #Die Nachricht wir angezeigt
         print(msg['body'])
@@ -117,6 +117,4 @@ if __name__ == '__main__':
     else:
         print("Unable to connect.")
 
-
-
-
+status.mainloop()
