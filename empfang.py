@@ -32,13 +32,22 @@ class empfang(sleekxmpp.ClientXMPP):
         # message handler
         #Wenn eine nachricht ankommt wird self.empfang ausgeführt
         self.add_event_handler("message", self.empfang)
+        self.add_event_handler("message", self.message)
+        self.add_event_handler("nachricht_senden", self.nachricht_senden)
 
+    def nachricht_senden(self):
+        name = input("Name an: ")
+        nachricht = input("Nachricht: ")
+        self.send_message(name + "@ifga", nachricht)
+        
     def start(self, event):
         # session start method
         self.send_presence()
         self.get_roster()
         #Er ist bereit
         print("startet")
+        while 0==0:
+            self.nachricht_senden()
         
     def status(self):
         global rechnen
