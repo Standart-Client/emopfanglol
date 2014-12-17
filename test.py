@@ -1,5 +1,3 @@
-emopfanglol
-===========
 
 
 #!/usr/bin/env python
@@ -50,7 +48,7 @@ class empfang(sleekxmpp.ClientXMPP):
         self.get_roster()
         print("startet")
 
-    def status(self, rechnen):
+    def status(self):
         global rechnen
         global st
         if rechnen == True:
