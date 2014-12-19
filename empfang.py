@@ -26,7 +26,7 @@ status.resizable(width=FALSE, height=FALSE)
 #hier wird die Klasse für den Empfänger erstellt:
 class empfang(sleekxmpp.ClientXMPP):
     
-    def __init__(self, jid, password, master):
+    def __init__(self, jid, password):
         sleekxmpp.ClientXMPP.__init__(self, jid, password)
 
         # start the session
